@@ -6,3 +6,7 @@ The challenge is to build a program that will emulate all the docking stations, 
 
 ## Motivation
 This project formed part of the week one challenges for Makers Academy.
+
+## Features
+When a person wants to use a bike, the docking station will release it.
+When a person wants to use a bike, it will be working.
