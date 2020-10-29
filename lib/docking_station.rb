@@ -1,15 +1,15 @@
-require_relative "./bike"
+require_relative "bike"
 
 class DockingStation
 
-  attr_reader :bike_store
+  attr_reader :bike
 
   def initialize
-    @bike_store = []
+    @available_bikes = 0
   end
 
   def release_bike
-    if @bike_store.empty?
+    if @available_bikes == 0
       raise StandardError.new "There were no bikes in the docking station"
     else
       Bike.new
@@ -17,6 +17,9 @@ class DockingStation
   end
 
   def dock(bike)
-    @bike_store.push(bike)
+    # we need to return the bike we dock
+    @bike = bike
+    # @bike_store.push(bike) # needed for step 12
   end
+
 end
