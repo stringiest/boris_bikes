@@ -48,6 +48,12 @@ describe DockingStation do
       expect(subject.dock(bike)).to eq [bike]
     end
 
+    it 'docks a broken bike' do
+      bike = Bike.new
+      bike.report_broken
+      expect(subject.dock(bike)).to eq [bike]
+    end
+
     it "raises an error when trying to dock a bike to full station" do
       subject.capacity.times { subject.dock Bike.new }
       expect {subject.dock Bike.new }.to raise_error "There is already a bike docked"
