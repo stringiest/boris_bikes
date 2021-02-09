@@ -25,7 +25,7 @@ describe DockingStation do
     it "releases working bikes" do
       subject.dock(Bike.new)
       bike = subject.release_bike
-      expect(bike).to respond_to(:working?)
+      expect(bike).to be_working
     end
   end
 
@@ -38,11 +38,11 @@ describe DockingStation do
     it "docks something" do
       bike = Bike.new
       # we want to return the bike we dock
-      expect(subject.dock(bike)).to eq bike
+      expect(subject.dock(bike)).to eq [bike]
     end
 
     it "raises an error when trying to dock a bike to full station" do
-      subject.dock(Bike.new)
+      20.times { subject.dock Bike.new }
       expect {subject.dock Bike.new }.to raise_error "There is already a bike docked"
     end
   end
